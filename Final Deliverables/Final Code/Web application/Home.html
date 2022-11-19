@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Parkinson Detection</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="../static/plugins/fontawesome-free/css/all.min.css"
+    />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../static/dist/css/adminlte.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css"
+    />
+  </head>
+  <body
+    class="hold-transition layout-top-nav layout-footer-fixed layout-navbar-fixed"
+  >
+    <div class="wrapper">
+      <!-- Navbar -->
+      <nav
+        class="main-header navbar navbar-expand-md navbar-dark accent-primary"
+      >
+        <div class="container">
+          <a href="/" class="navbar-brand">
+            <img
+              src="../static/dist/img/plogo.jpg"
+              alt="Logo"
+              class="brand-image img-circle elevation-3"
+              style="opacity: 0.8"
+            />
+            <span class="brand-text font-weight-light"
+              ><b>Parkinson Detector</b></span
+            >
+          </a>
+
+          <button
+            class="navbar-toggler order-1"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="/" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="/info" class="nav-link">Info</a>
+              </li>
+              <li class="nav-item">
+                <a href="/test" class="nav-link">Predict</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right navbar links -->
+          <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+            <li class="nav-item">
+              <button
+                type="button"
+                onclick="switchTheme()"
+                class="btn btn-primary btn-block btn-sm"
+              >
+                <i class="fa fa-bell"></i> Switch Theme
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- /.navbar -->
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0">Detecting Parkinson Disease Using ML</h1>
+              </div>
+              <!-- /.col -->
+
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="content">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="card card-primary card-outline">
+                  <div class="card-header">
+                    <h5 class="card-title m-0">Healthy</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="col-sm-12">
+                      <div class="position-relative">
+                        <img
+                          src="../static/dist/img/healthy.jpg"
+                          alt="Photo 1"
+                          class="img-fluid"
+                          width="650"
+                          height="400"
+                        />
+                        <div class="ribbon-wrapper ribbon-lg">
+                          <div class="ribbon bg-success text-lg">Healthy</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card -->
+              </div>
+              <!-- /.col-md-6 -->
+              <div class="col-lg-6">
+                <div class="card card-primary card-outline">
+                  <div class="card-header">
+                    <h5 class="card-title m-0">Parkinson's Disease</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="col-sm-12">
+                      <div class="position-relative">
+                        <img
+                          src="../static/dist/img/parkinson_affected.jpg"
+                          alt="Photo 1"
+                          class="img-fluid"
+                          width="650"
+                          height="300"
+                        />
+                        <div class="ribbon-wrapper ribbon-lg">
+                          <div class="ribbon bg-danger text-lg">Parkinson</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col-md-6 -->
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card card-primary card-outline">
+                  <div class="card-header">
+                    <h5 class="card-title m-0">About</h5>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">
+                      More than 10 million people are living with Parkinson’s
+                      Disease worldwide, according to the Parkinson’s
+                      Foundation. While Parkinson’s cannot be cured, early
+                      detection along with proper medication can significantly
+                      improve symptoms and quality of life. The researchers
+                      found that the drawing speed was slower and the pen
+                      pressure is lower among Parkinson’s patients. One of the
+                      indications of Parkinson’s is tremors and rigidity in the
+                      muscles, making it difficult to draw smooth spirals and
+                      waves. It is possible to detect Parkinson’s disease using
+                      the drawings alone instead of measuring the speed and
+                      pressure of the pen on paper. Our goal is to quantify the
+                      visual appearance(using HOG method) of these drawings and
+                      then train a machine learning model to classify them. In
+                      this project, We are using, Histogram of Oriented
+                      Gradients (HOG) image descriptor along with a Random
+                      Forest classifier to automatically detect Parkinson’s
+                      disease in hand-drawn images of spirals and waves.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-none d-sm-inline"></div>
+        <!-- Default to the left -->
+        <strong
+          >Team: &nbsp;<a
+            href="https://www.linkedin.com/in/kamalesh-s-034512/"
+            >Kamalesh</a
+          >, &nbsp;<a
+            href="https://www.linkedin.com/in/krupa-karan-r-441150208/"
+            >KrupaKaran</a
+          >, &nbsp;<a href="https://www.linkedin.com/in/maanesh-s/"
+            >Maanesh</a
+          >, &nbsp;<a
+            href="https://www.linkedin.com/in/rajarajan-r-410a7620a/"
+            >RajaRajan</a
+          
+          ></strong
+        >
+      </footer>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="../static/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../static/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../static/dist/js/demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+    <script>
+      var currentTheme = sessionStorage.getItem("theme");
+      var mainHeader = document.querySelector(".main-header");
+
+      if (currentTheme) {
+        if (currentTheme === "dark") {
+          if (!document.body.classList.contains("dark-mode")) {
+            document.body.classList.add("dark-mode");
+          }
+          if (mainHeader.classList.contains("navbar-light")) {
+            mainHeader.classList.add("navbar-dark");
+            mainHeader.classList.remove("navbar-light");
+          }
+          toggleSwitch.checked = true;
+        }
+      }
+
+      function switchTheme() {
+        if (sessionStorage.getItem("theme") === "dark") {
+          if (document.body.classList.contains("dark-mode")) {
+            document.body.classList.remove("dark-mode");
+          }
+
+          sessionStorage.setItem("theme", "light");
+        } else {
+          if (!document.body.classList.contains("dark-mode")) {
+            document.body.classList.add("dark-mode");
+          }
+
+          sessionStorage.setItem("theme", "dark");
+        }
+      }
+    </script>
+  </body>
+</html>
+Footer
